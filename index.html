@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    <script>
+        function redirectToApp() {
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+            if (/android/i.test(userAgent)) {
+                // Redirect Android users to Google Play Store
+                window.location.href = "https://play.google.com/store/apps/details?id=ua.rukavychka";
+            } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                // Redirect iOS users to Apple App Store
+                window.location.href = "https://apps.apple.com/ua/app/rukavychka/id6740689308";
+            } else {
+                // Redirect other users to a website (fallback)
+                //window.location.href = "https://yourwebsite.com";
+            }
+        }
+
+        // Execute redirect on page load
+        window.onload = redirectToApp;
+    </script>
+</head>
+<body>
+    <p>If you are not redirected, <a href="https://yourwebsite.com" id="fallbackLink">click here</a>.</p>
+</body>
+</html>
